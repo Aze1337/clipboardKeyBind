@@ -4,14 +4,16 @@
 
 
 
+
+
 int main()
 {
 	while (true)
 	{
-		Sleep(100);
-		if (GetAsyncKeyState(VK_UP))
+		Sleep(120);
+		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState(0x56))
 		{
-			std::cout << "you pressed key up" << std::endl;
+			std::cout << "you pasted something" << std::endl;
 		}
 	}
 }
