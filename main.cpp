@@ -4,10 +4,15 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cstring>
 
 
 
-// need to add the clipboard part and it's doooneee ha!
+
+
+
+// global variable
+int current_line = 0;
 
 int main()
 {
@@ -32,6 +37,19 @@ int main()
 		Sleep(120);
 		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState(0x56))
 		{
+			// clipboard implementation here
+			if (OpenClipboard(nullptr))
+			{
+				const char* output = lines[current_line].c_str();
+				current_line++;
+				const size_t len = strlen(output) + 1;
+				HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, len);
+				memcpy(GlobalLock(hMem), output, len);
+				GlobalUnlock(hMem);
+				EmptyClipboard();
+				SetClipboardData(CF_TEXT, hMem);
+				CloseClipboard();
+			}
 			std::cout << "you pasted something" << std::endl;
 		}
 	}
