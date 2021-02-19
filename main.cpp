@@ -18,7 +18,7 @@ int main()
 {
 	std::string line;
 	std::vector<std::string> lines;
-	std::ifstream myFile{"lines.txt"};
+	std::ifstream myFile{ "lines.txt" };
 	if (myFile.is_open())
 	{
 		while (myFile >> line)
@@ -26,6 +26,18 @@ int main()
 			lines.push_back(line);
 		}
 		myFile.close();
+		if (OpenClipboard(nullptr))
+		{
+			const char* output = lines[0].c_str();
+			current_line++;
+			const size_t len = strlen(output) + 1;
+			HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, len);
+			memcpy(GlobalLock(hMem), output, len);
+			GlobalUnlock(hMem);
+			EmptyClipboard();
+			SetClipboardData(CF_TEXT, hMem);
+			CloseClipboard();
+		}
 	}
 	else
 	{
@@ -54,4 +66,3 @@ int main()
 		}
 	}
 }
-
