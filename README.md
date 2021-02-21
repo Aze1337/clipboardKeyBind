@@ -10,6 +10,9 @@ Change clipboard data by pressing a specific key.
 3) keep going till it's done
 
 
+# Demo 
+![x](https://i.imgur.com/OqIxqvE.mp4)
+
 
 
 
