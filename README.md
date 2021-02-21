@@ -11,7 +11,7 @@ Change clipboard data by pressing a specific key.
 
 
 # Demo 
-![x](https://imgur.com/96geRpO)
+![x](https://imgur.com/96geRpO.jpg)
 
 
 
