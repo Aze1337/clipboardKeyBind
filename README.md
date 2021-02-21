@@ -14,11 +14,5 @@ Change clipboard data by pressing a specific key.
 
 
 
-# to do list 
-- Add the clipboard part
-- Add another keybind incase you want to go back to the previous item in your clipboard
-- Be able to customize the keybinds to the ones you prefer
-
-
 
 
