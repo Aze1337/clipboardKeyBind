@@ -4,8 +4,6 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <cstring>
-
 
 
 
@@ -52,6 +50,10 @@ int main()
 			// clipboard implementation here
 			if (OpenClipboard(nullptr))
 			{
+				if (current_line >= lines.size())
+				{
+					return 0;
+				}
 				const char* output = lines[current_line].c_str();
 				current_line++;
 				const size_t len = strlen(output) + 1;
